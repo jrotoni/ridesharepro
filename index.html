@@ -15,24 +15,42 @@
   <div id="app">
     <v-app>
       <v-navigation-drawer disable-resize-watcher v-model="drawer" app clipped color="primary">
-        <v-list dense>
-          <v-list-item link>
-            <v-list-item-action>
-              <v-icon>mdi-view-dashboard</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Dashboard</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-action>
-              <v-icon>mdi-cog</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Settings</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+        <v-list dense dark>
+          <a href="/">
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </a>
+          <a href="/features">
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Features</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </a>
+          <a href="/about">
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>About</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </a>
+          <a href="/pricing">
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Pricing</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </a>
+          <a href="/contact">
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Contact Us</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </a>
       </v-navigation-drawer>
 
       <!-- <v-app-bar app flat clipped-left color="transparent">
@@ -53,18 +71,28 @@
         <v-container>
           <v-row>
             <v-col cols="12" md="4">
-              <v-btn @click="drawer = !drawer" fab small color="transparent" dark class="d-flex d-sm-flex d-md-none">
+              <v-btn @click="drawer = !drawer" fab color="secondary" dark class="d-flex d-sm-flex d-md-none">
                 <v-icon>mdi-format-list-bulleted-square</v-icon>
               </v-btn>
-              <v-img src="./newhomepage/logo.png" width="50px"></v-img>
+              <v-img src="./newhomepage/logo.png" class="d-none d-md-flex d-lg-flex d-xl-flex" width="50px"></v-img>
             </v-col>
             <v-col cols="12" md="8" class="d-none d-md-flex d-lg-flex d-xl-flex" style="justify-content: flex-end;">
               <ul>
-                <li>Home</li>
-                <li>Features</li>
-                <li>About</li>
-                <li>Pricing</li>
-                <li>Contact Us</li>
+                <a href="/">
+                  <li>Home</li>
+                </a>
+                <a href="/features">
+                  <li>Features</li>
+                </a>
+                <a href="/about">
+                  <li>About</li>
+                </a>
+                <a href="/pricing">
+                  <li>Pricing</li>
+                </a>
+                <a href="/contact">
+                  <li>Contact Us</li>
+                </a>
               </ul>
             </v-col>
           </v-row>
@@ -82,6 +110,8 @@
                   </span>
                   <strong>RideShare</strong> PRO
                 </h2>
+                <v-btn color="orange" rounded class="px-10 py-6 mt-5" @click="toChat">Request for Demo
+                </v-btn>
               </v-col>
               <v-col cols="12" md="6" align="center">
                 <v-img src="./newhomepage/ridesharepro.png" width="400px" class="mt-10"></v-img>
@@ -99,7 +129,6 @@
                 <p>Ramp up your existing pre-planned service or start a new <br />business by adding on-demand to your
                   service
                   offerings!</p>
-                <v-btn color="secondary" rounded class="px-10 py-6 mt-5">Request for Demo</v-btn>
               </v-col>
             </v-row>
           </v-container>
@@ -117,7 +146,7 @@
               <v-col cols="12" md="6">
                 <h3>What is RideShare PRO?</h3>
                 <p>RideShare PRO is an all-in-one transportation software platform. This includes a booking widget that
-                  can be embedded on any website, a dispatch/oprations system, a rider app and a driver app.</p>
+                  can be embedded on any website, a dispatch/operations system, a rider app and a driver app. </p>
               </v-col>
             </v-row>
           </v-container>
@@ -135,7 +164,7 @@
               <v-col cols="12" md="6">
                 <h3>Booking Widget</h3>
                 <p>The Booking Widget is used by your passengers to book, edit, cancel and track their reservations. It
-                  can be embedde on any website with minimal effort.</p>
+                  can be embedded on any website with minimal effort.</p>
                 <p>The booking widget can also be white-labeled so it blends seamlessly with your website.</p>
               </v-col>
               <v-col cols="12" md="6">
@@ -144,10 +173,10 @@
             </v-row>
 
             <v-row align="center">
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="left">
                 <v-img src="./newhomepage/rider-phone.png" width="250px" class="img-phone"></v-img>
               </v-col>
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="right">
                 <h3>Rider App</h3>
                 <p>The Rider App offers the same functionality as the Booking Widget but in app form! On top of that, it
                   offers more useability to your customers by allowing them to rate their trips, manage their payment
@@ -176,8 +205,8 @@
             <v-row>
               <v-col>
                 <h2>Operations Center</h2>
-                <p>The Operations Center or "Ops Center" is an all-in-one management dashboard wherein you can get a
-                  bird's view of your business. It offers a ton functionality which includes, but not limited to the
+                <p>The Operations Center or “Ops Center” is an all-in-one management dashboard wherein you can get a
+                  bird's view of your business. It offers a ton of functionality which includes, but not limited to the
                   following:</p>
               </v-col>
             </v-row>
@@ -258,12 +287,11 @@
           <v-container>
             <v-row align="center">
               <v-col cols="12" md="6" class="pr-10">
-                <h3>How do we user RideShare PRO?</h3>
+                <h3>How do we use RideShare PRO?</h3>
                 <p>We use RideShare PRO in every facet of our business. From offering booking channels for our
                   customers, to measuring the performance of the company. On top of that, we are also using the platform
-                  to break
-                  through the food delivery industry.</p>
-                <p>We are current serving the country of Los Angeles and assisting them in delivering food boxes to
+                  to break through the food delivery industry.</p>
+                <p>We are currently serving the county of Los Angeles and assisting them in delivering food boxes to
                   their constituents.</p>
               </v-col>
               <v-col cols="12" md="6">
@@ -278,10 +306,10 @@
             <v-row>
               <v-col>
                 <h3>How do you use RideShare PRO for deliveries?</h3>
-                <p>We use RideShare PRO in every stage of our delivery business. This includes importing the recepients
-                  information, and automatically generating routes to optimize delivery.</p>
-                <p>The routes are generated using our proprietary algorithm which is designed to maximize the use of our
-                  drivers and make sure that our customers get their deliveries on time.</p>
+                <p>We use RideShare PRO in every stage of our delivery business. This includes importing the recipients
+                  information, and automatically generating routes to optimize delivery. The routes are generated using
+                  our proprietary algorithm which is designed to maximize the use of our drivers and make sure that our
+                  customers get their deliveries on time.</p>
               </v-col>
             </v-row>
           </v-container>
@@ -299,39 +327,54 @@
               <v-col cols="12" md="3"></v-col>
 
               <v-col cols="12" md="6">
-                <v-form>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" md="6">
-                        <v-text-field v-model="firstName" label="First name" solo hide-details required>
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="6">
-                        <v-text-field v-model="lastName" label="Last name" solo hide-details required>
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field v-model="email" label="Email Address" solo hide-details required>
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field v-model="role" label="Your Current Role" solo hide-details required>
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field v-model="vehicle" label="# of Vehicles" solo hide-details required>
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-textarea v-model="message" label="Message" solo hide-details required>
-                        </v-textarea>
-                      </v-col>
-                      <v-col cols="12" class="text-right">
-                        <v-btn color="primary" rounded class="pa-5 px-10">Submit</v-btn>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-form>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="requiredField.firstName" label="First name" outlined dark
+                        :hide-details="error.firstName" :error-messages="error.firstName" required>
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="requiredField.lastName" label="Last name" outlined dark
+                        :hide-details="error.lastName" :error-messages="error.lastName">
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="requiredField.email" label="Email" type="email" outlined dark
+                        :hide-details="error.email" :error-messages="error.email">
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="phoneNumber" label="Phone Number" outlined dark hide-details>
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-text-field v-model="role" label="Your Current Role" outlined dark hide-details>
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-select v-model="transaction" label="Average Daily Transactions" :items="transactions" outlined
+                        dark hide-details>
+                      </v-select>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-select v-model="vehicle" label="Number of Vehicles" :items="vehicles" outlined dark
+                        hide-details>
+                      </v-select>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-textarea v-model="message" label="Message" outlined dark hide-details>
+                      </v-textarea>
+                    </v-col>
+                    <v-col cols="12" v-show="!!errorMessage">
+                      <v-alert type="error">{{ errorMessage }}</v-alert>
+
+                    </v-col>
+                    <v-col cols="12" class="text-right">
+                      <v-btn color="primary" rounded class="pa-5 px-10" id="chat" @click="submitForm">Submit</v-btn>
+                    </v-col>
+                  </v-row>
+                </v-container>
               </v-col>
             </v-row>
           </v-container>
@@ -367,19 +410,71 @@
       data() {
         return {
           drawer: false,
-          firstName: '',
-          lastName: '',
-          email: '',
+          requiredField: {
+            firstName: '',
+            lastName: '',
+            email: ''
+          },
+          error: {
+            firstName: '',
+            lastName: '',
+            email: ''
+          },
           role: '',
+          phoneNumber: '',
+          message: '',
+          transaction: '',
           vehicle: '',
-          message: ''
+          valid: true,
+          transactions: ['1-10', '11-100', '101-500', '500+'],
+          vehicles: ['1-10', '11-100', '101-500', '500+'],
+          errorMessage: '',
+          emailRules: [
+            v => !!v || 'E-mail is required',
+            v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+          ],
         }
       },
+
       methods: {
-        toggleDrawer() {
-          console.log('hello')
+        toChat() {
+          const el = document.getElementById('chat');
+          el.scrollIntoView({ behavior: "smooth", block: 'start' });
+        },
+        validate(field) {
+          this.error[field] = ''
+          if (!this.requiredField[field]) {
+            this.error[field] = 'This field is required.'
+          }
+        },
+        submitForm() {
+          // this.$refs.form.validate()
+          // this.$refs.form.reset()
+          console.log('validate')
+          let self = this
+          let hasError = false
+          for (let field in self.error) {
+            if (!self.requiredField[field]) {
+              self.error[field] = 'This field is required.'
+              console.log('q', self.requiredField, self.error)
+              hasError = true
+            }
+          }
+          if (hasError) {
+            self.errorMessage = "Please fill-in the required fields."
+          } else {
+
+          }
+        },
+        clearForm() {
+          for (let field in this.requiredField) {
+            this.requiredField[field] = ''
+            this.error[field] = ''
+          }
         }
-      }
+
+      },
+
     })
   </script>
 </body>

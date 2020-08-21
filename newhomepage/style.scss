@@ -16,10 +16,13 @@
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: flex-end;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
       li {
         list-style: none;
-        width: 90px;
-
+        padding: 0 20px;
       }
     }
   }
@@ -126,7 +129,7 @@
     }
 
     .operations-center {
-  margin-top:-100px;
+    margin-top:-100px;
     transform:rotate(5deg);
     }
   }
@@ -195,5 +198,61 @@
     justify-content: center;
     font-size: 0.9em;
     padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  #app {
+
+    .inside-top-section  {
+     text-align: center;
+     padding-top: 80px;
+   }
+
+   .request-demo {
+     padding-bottom: 0;
+     padding-top: 100px;
+
+     h2 {
+       line-height: 1em;
+     }
+   }
+  
+   .video-section {
+     padding: 10px 0;
+     video {
+       width: 100%;
+     }
+   }
+
+   .included {
+     .left {
+       order: 2;
+     }
+   }
+
+   .operations-wrapper {
+     margin: 0 !important;
+     -webkit-transform: none;
+     transform: none;
+     padding: 50px 0;
+     
+     .operations-center {
+      margin: 0 !important;
+    -webkit-transform: none;
+  transform: none;
+
+  }
+   }
+
+   .why-rideshare {
+     padding: 0;
+   }
+
+   .chat {
+     #chat {
+       width: 100%;
+     }
+   }
   }
 }
