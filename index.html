@@ -207,7 +207,7 @@
                 <span>...and more!</span>
               </v-col>
               <v-col cols="12" md="6">
-                <v-img src="./newhomepage/website.png"></v-img>
+                <v-img :src="getImg(showPic)" class="img-operations"></v-img>
               </v-col>
             </v-row>
           </v-container>
@@ -345,12 +345,14 @@
                       </v-select>
                     </v-col>
                     <v-col cols="12">
-                      <v-textarea v-model="message" label="Message" outlined dark hide-details>
+                      <v-textarea v-model="message" label="Message" outlined dark hide-details no-resize rows="4">
                       </v-textarea>
                     </v-col>
                     <v-col cols="12" v-show="!!errorMessage">
-                      <v-alert type="error">{{ errorMessage }}</v-alert>
-
+                      <v-alert type="error" :value="alert">{{ errorMessage }}</v-alert>
+                    </v-col>
+                    <v-col cols="12" v-show="!!successMessage">
+                      <v-alert type="success" :value="alert">{{ successMessage }}</v-alert>
                     </v-col>
                     <v-col cols="12" class="text-right">
                       <v-btn color="primary" rounded class="pa-5 px-10" id="chat" @click="submitForm"
@@ -412,6 +414,7 @@
           transactions: ['1-10', '11-100', '101-500', '500+'],
           vehicles: ['1-10', '11-100', '101-500', '500+'],
           errorMessage: '',
+          successMessage: '',
           emailRules: [
             v => !!v || 'E-mail is required',
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
@@ -427,7 +430,8 @@
             { val: 6, name: 'Manage your service areas' },
             { val: 7, name: 'Manage your pricing parameters' }
           ],
-          showPic: 0
+          showPic: 0,
+          alert: false
         }
       },
 
@@ -443,9 +447,7 @@
             this.error[field] = 'This field is required.'
           }
         },
-        submitForm() {
-          // this.$refs.form.validate()
-          // this.$refs.form.reset()
+        async submitForm() {
           console.log('validate')
           let self = this
           self.isLoading = true
@@ -457,6 +459,7 @@
             }
           }
           if (hasError) {
+            self.alert = true
             self.errorMessage = "Please fill in the required fields."
           } else {
             let bodyMessage = {
@@ -469,10 +472,22 @@
               transaction: this.transaction,
               vehicle: this.vehicle,
             }
-            let link = "mailto:jeremy.rotoni@gmail.com"
-              + "&subject=" + encodeURIComponent("This is my subject")
-              + "&body=" + encodeURIComponent(bodyMessage)
-            window.location.href = link
+            const rawResponse = await fetch('https://staging-gateway.opoli.com/2.0/contact', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(bodyMessage)
+            })
+            const content = await rawResponse.json();
+            if (content.success) {
+              this.alert = true
+              this.successMessage = 'Thank you for reaching us! We will contact you as soon as possible.'
+            } else {
+              this.alert = true
+              this.errorMessage = 'There is something wrong.'
+            }
             this.clearForm()
           }
           self.isLoading = false
@@ -490,9 +505,21 @@
         },
         showPicNumber(number) {
           this.showPic = number
+        },
+        getImg(number) {
+          return './newhomepage/' + number + '.png'
+        },
+        hide_alert() {
+          window.setInterval(() => {
+            this.alert = false;
+          }, 4000)
         }
-
       },
+      mounted() {
+        if (alert) {
+          this.hide_alert();
+        }
+      }
 
     })
   </script>
