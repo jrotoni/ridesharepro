@@ -1,0 +1,199 @@
+#app {
+  $green: #009c8b;
+  $light-green: #57b7ac;
+  $off-white: #f6f9fc;
+  $black: #1d201f;
+
+  header { 
+    position: absolute; 
+    z-index: 2;
+    width: 100%; 
+    color: #fff;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      li {
+        list-style: none;
+        width: 90px;
+
+      }
+    }
+  }
+  
+  .top-section {
+    background-image: url('./bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    .inside-top-section {
+      height: 100vh;
+      color: #fff;
+
+      h2 {
+        font-size: 4.5em;
+        line-height: 0.8em;
+        font-weight: 400;
+        strong {
+          font-weight: 700;
+        }
+
+        .small {
+          font-size: 3rem;
+          display: block;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  .request-demo {
+    text-align: center;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    h2 {
+      color: $green;
+      font-weight: 500;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+  }
+
+  .video-section {
+    padding: 60px 0;
+    h3 {
+      color: $green;
+      margin-bottom: 1.5em;
+      font-size: 1.5em;
+      font-weight: 500;
+    }
+  }
+
+  .included {
+    background-color: $off-white;
+    padding: 80px 0;
+    h2 {
+      color: $green;
+      font-weight: 500;
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .img-phone {
+      margin: 0 auto;
+    }
+  }
+
+  .operations-wrapper {
+    // background-color: $green;
+    // padding: 80px 0;
+
+  margin-top:-70px;
+  background-color: $green;
+  margin-left:-100px;
+  margin-right:-50px;
+  -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+    padding-top: 200px;
+    padding-bottom: 100px;
+
+    h2, p {
+      color: #fff;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 2em;
+    }
+
+    li {
+      &:first-child {
+        color: #fff;
+      }
+    }
+
+    .operations-center {
+  margin-top:-100px;
+    transform:rotate(5deg);
+    }
+  }
+
+  .why-rideshare {
+    padding: 80px 0;
+    padding-top: 150px;
+    h3 {
+      color: $green;
+      font-weight: 500;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .icon {
+      .v-image {
+        width: 70px;
+        margin: 0 auto;
+        margin-bottom: 15px;;
+      }
+      text-align: center;
+    }
+  }
+
+  .us-map {
+    padding: 80px 0;
+    padding-top: 200px;
+    background-color: $off-white;
+    clip-path: polygon(0 150px, 100% 0, 100% 100%, 0 100%);
+    h3 {
+      font-weight: 500;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    
+  }
+
+  .use-rideshare {
+    padding: 80px 0;
+    h3 {
+      font-weight: 500;
+      font-size: 1.5em;
+      margin-bottom: 2em;
+      color: $green;
+      font-weight: 500;
+    }
+    p {
+      margin-bottom: 2em;
+    }
+  }
+
+  .chat {
+    background-color: $black;
+    color: #fff;
+
+    h3 {
+      font-weight: 500;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+  }
+
+
+  footer {
+    background-color: $black;
+    color: #ccc;
+    justify-content: center;
+    font-size: 0.9em;
+    padding: 20px 0;
+  }
+}

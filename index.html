@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./newhomepage/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>RideShare PRO</title>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-navigation-drawer disable-resize-watcher v-model="drawer" app clipped color="primary">
+        <v-list dense>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-view-dashboard</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Dashboard</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link>
+            <v-list-item-action>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Settings</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <!-- <v-app-bar app flat clipped-left color="transparent">
+        <v-container class="pa-0">
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-btn @click="drawer = !drawer" fab small>
+                <v-icon>mdi-format-list-bulleted-square</v-icon>
+              </v-btn>
+              test
+            </v-col>
+            <v-col cols="12" md="6">test!!!</v-col>
+          </v-row>
+        </v-container>
+      </v-app-bar> -->
+
+      <header>
+        <v-container>
+          <v-row>
+            <v-col cols="12" md="4">
+              <v-btn @click="drawer = !drawer" fab small color="transparent" dark class="d-flex d-sm-flex d-md-none">
+                <v-icon>mdi-format-list-bulleted-square</v-icon>
+              </v-btn>
+              <v-img src="./newhomepage/logo.png" width="50px"></v-img>
+            </v-col>
+            <v-col cols="12" md="8" class="d-none d-md-flex d-lg-flex d-xl-flex" style="justify-content: flex-end;">
+              <ul>
+                <li>Home</li>
+                <li>Features</li>
+                <li>About</li>
+                <li>Pricing</li>
+                <li>Contact Us</li>
+              </ul>
+            </v-col>
+          </v-row>
+        </v-container>
+      </header>
+
+      <v-main>
+        <section class="top-section">
+          <v-container>
+            <v-row align="center" justify="center" class="inside-top-section">
+              <v-col cols="12" md="6">
+                <h2>
+                  <span class="small">
+                    Welcome to
+                  </span>
+                  <strong>RideShare</strong> PRO
+                </h2>
+              </v-col>
+              <v-col cols="12" md="6" align="center">
+                <v-img src="./newhomepage/ridesharepro.png" width="400px" class="mt-10"></v-img>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+
+        <section class="request-demo">
+          <v-container>
+            <v-row>
+              <v-col>
+                <h2 color="primary">Start your own rideshare business!</h2>
+                <p>Ramp up your existing pre-planned service or start a new <br />business by adding on-demand to your
+                  service
+                  offerings!</p>
+                <v-btn color="secondary" rounded class="px-10 py-6 mt-5">Request for Demo</v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="video-section">
+          <v-container>
+            <v-row justify="center" align="center">
+              <v-col cols="12" md="6" class="text-right">
+                <video width="420" height="240" controls>
+                  <source src="./newhomepage/RideShareProVid.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </v-col>
+              <v-col cols="12" md="6">
+                <h3>What is RideShare PRO?</h3>
+                <p>RideShare PRO is an all-in-one transportation software platform. This includes a booking widget that
+                  can be embedded on any website, a dispatch/oprations system, a rider app and a driver app.</p>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="included">
+          <v-container>
+            <v-row>
+              <v-col>
+                <h2>What are included in RideShare PRO?</h2>
+              </v-col>
+            </v-row>
+
+            <v-row justify="center" align="center">
+              <v-col cols="12" md="6">
+                <h3>Booking Widget</h3>
+                <p>The Booking Widget is used by your passengers to book, edit, cancel and track their reservations. It
+                  can be embedde on any website with minimal effort.</p>
+                <p>The booking widget can also be white-labeled so it blends seamlessly with your website.</p>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img src="./newhomepage/website.png"></v-img>
+              </v-col>
+            </v-row>
+
+            <v-row align="center">
+              <v-col cols="12" md="6">
+                <v-img src="./newhomepage/rider-phone.png" width="250px" class="img-phone"></v-img>
+              </v-col>
+              <v-col cols="12" md="6">
+                <h3>Rider App</h3>
+                <p>The Rider App offers the same functionality as the Booking Widget but in app form! On top of that, it
+                  offers more useability to your customers by allowing them to rate their trips, manage their payment
+                  information, edit and cancel their reservations, and easily track their driver.</p>
+                <p>The Rider App can also be white-labeled to support your brand aesthetic.</p>
+              </v-col>
+            </v-row>
+
+            <v-row align="center">
+              <v-col cols="12" md="6">
+                <h3>Driver App</h3>
+                <p>The Driver App is what your drivers will be using to serve your customers. Your drivers can monitor
+                  their assigned businesses, manage their profile and documents, manage their earnings and more.</p>
+                <p>Like the Booking Widget and Rider App, the Driver App can also be white-labeled.</p>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img src="./newhomepage/driver-phone.png" width="250px" class="img-phone"></v-img>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="operations-wrapper">
+
+          <v-container class="operations-center">
+            <v-row>
+              <v-col>
+                <h2>Operations Center</h2>
+                <p>The Operations Center or "Ops Center" is an all-in-one management dashboard wherein you can get a
+                  bird's view of your business. It offers a ton functionality which includes, but not limited to the
+                  following:</p>
+              </v-col>
+            </v-row>
+            <v-row align="center">
+              <v-col cols="12" md="6">
+                <ul>
+                  <li>Manage Reservations</li>
+                  <li>Manage Customer and Driver Accounts</li>
+                  <li>Send notifications and announcements to your customers or drivers</li>
+                  <li>Dispatch Reservations</li>
+                  <li>Generate Performance Reports</li>
+                  <li>Manage your product offerings</li>
+                  <li>Manage your service areas</li>
+                  <li>Manage your pricing parameters</li>
+                </ul>
+                <span>...and more!</span>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img src="./newhomepage/website.png"></v-img>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="why-rideshare">
+
+          <v-container>
+            <v-row>
+              <v-col>
+                <h3>Why RideShare PRO?</h3>
+                <p>Our app development solution can be tweaked with minimal efforts and can be used to develop unique
+                  rideshare apps that suit your requirements.</p>
+              </v-col>
+            </v-row>
+            <v-row class="mt-10">
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/prize.png"></v-img>
+                  <p>White-Lavel Software</p>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/talk.png"></v-img>
+                  <p>User-friendly</p>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/transaction.png"></v-img>
+                  <p>Easily handles millions of transactions</p>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/flow-chart.png"></v-img>
+                  <p>Marketing Module</p>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/cost.png"></v-img>
+                  <p>Reduce Costs</p>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" sm="6">
+                <div class="icon">
+                  <v-img src="./newhomepage/share.png"></v-img>
+                  <p>Driver Network</p>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="us-map">
+
+          <v-container>
+            <v-row align="center">
+              <v-col cols="12" md="6" class="pr-10">
+                <h3>How do we user RideShare PRO?</h3>
+                <p>We use RideShare PRO in every facet of our business. From offering booking channels for our
+                  customers, to measuring the performance of the company. On top of that, we are also using the platform
+                  to break
+                  through the food delivery industry.</p>
+                <p>We are current serving the country of Los Angeles and assisting them in delivering food boxes to
+                  their constituents.</p>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img src="./newhomepage/american-map.png"></v-img>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+        <section class="use-rideshare">
+          <v-container>
+            <v-row>
+              <v-col>
+                <h3>How do you use RideShare PRO for deliveries?</h3>
+                <p>We use RideShare PRO in every stage of our delivery business. This includes importing the recepients
+                  information, and automatically generating routes to optimize delivery.</p>
+                <p>The routes are generated using our proprietary algorithm which is designed to maximize the use of our
+                  drivers and make sure that our customers get their deliveries on time.</p>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+
+        <section class="chat">
+
+          <v-container class="py-10">
+            <v-row>
+              <v-col cols="12" md="3">
+                <h3>Ready to Chat?</h3>
+                <p>Want to see a demo? Want access to RideShare PRO platform?</p>
+              </v-col>
+              <v-col cols="12" md="3"></v-col>
+
+              <v-col cols="12" md="6">
+                <v-form>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12" md="6">
+                        <v-text-field v-model="firstName" label="First name" solo hide-details required>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <v-text-field v-model="lastName" label="Last name" solo hide-details required>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field v-model="email" label="Email Address" solo hide-details required>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field v-model="role" label="Your Current Role" solo hide-details required>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field v-model="vehicle" label="# of Vehicles" solo hide-details required>
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-textarea v-model="message" label="Message" solo hide-details required>
+                        </v-textarea>
+                      </v-col>
+                      <v-col cols="12" class="text-right">
+                        <v-btn color="primary" rounded class="pa-5 px-10">Submit</v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-form>
+              </v-col>
+            </v-row>
+          </v-container>
+        </section>
+
+      </v-main>
+
+      <v-footer flat>
+        <span>RideShare PRO &copy; {{ new Date().getFullYear() }}. All Rights Reserved.</span>
+      </v-footer>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(
+        {
+          theme: {
+            themes: {
+              light: {
+                primary: '#009c8b',
+                secondary: '#57b7ac',
+                accent: '#1d201f',
+                error: '#b71c1c',
+              },
+            },
+          },
+        }
+      ),
+      data() {
+        return {
+          drawer: false,
+          firstName: '',
+          lastName: '',
+          email: '',
+          role: '',
+          vehicle: '',
+          message: ''
+        }
+      },
+      methods: {
+        toggleDrawer() {
+          console.log('hello')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+#app header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  color: #fff;
+}
+
+#app header ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#app header ul li {
+  list-style: none;
+  width: 90px;
+}
+
+#app .top-section {
+  background-image: url("./bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#app .top-section .inside-top-section {
+  height: 100vh;
+  color: #fff;
+}
+
+#app .top-section .inside-top-section h2 {
+  font-size: 4.5em;
+  line-height: 0.8em;
+  font-weight: 400;
+}
+
+#app .top-section .inside-top-section h2 strong {
+  font-weight: 700;
+}
+
+#app .top-section .inside-top-section h2 .small {
+  font-size: 3rem;
+  display: block;
+  font-weight: 100;
+}
+
+#app .request-demo {
+  text-align: center;
+  padding: 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#app .request-demo h2 {
+  color: #009c8b;
+  font-weight: 500;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#app .video-section {
+  padding: 60px 0;
+}
+
+#app .video-section h3 {
+  color: #009c8b;
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+#app .included {
+  background-color: #f6f9fc;
+  padding: 80px 0;
+}
+
+#app .included h2 {
+  color: #009c8b;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+#app .included h3 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+#app .included p {
+  color: #666;
+}
+
+#app .included .img-phone {
+  margin: 0 auto;
+}
+
+#app .operations-wrapper {
+  margin-top: -70px;
+  background-color: #009c8b;
+  margin-left: -100px;
+  margin-right: -50px;
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  padding-top: 200px;
+  padding-bottom: 100px;
+}
+
+#app .operations-wrapper h2, #app .operations-wrapper p {
+  color: #fff;
+}
+
+#app .operations-wrapper h2 {
+  font-weight: 500;
+  font-size: 2em;
+}
+
+#app .operations-wrapper li:first-child {
+  color: #fff;
+}
+
+#app .operations-wrapper .operations-center {
+  margin-top: -100px;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+#app .why-rideshare {
+  padding: 80px 0;
+  padding-top: 150px;
+}
+
+#app .why-rideshare h3 {
+  color: #009c8b;
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#app .why-rideshare .icon {
+  text-align: center;
+}
+
+#app .why-rideshare .icon .v-image {
+  width: 70px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+#app .us-map {
+  padding: 80px 0;
+  padding-top: 200px;
+  background-color: #f6f9fc;
+  -webkit-clip-path: polygon(0 150px, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 150px, 100% 0, 100% 100%, 0 100%);
+}
+
+#app .us-map h3 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#app .use-rideshare {
+  padding: 80px 0;
+}
+
+#app .use-rideshare h3 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  color: #009c8b;
+  font-weight: 500;
+}
+
+#app .use-rideshare p {
+  margin-bottom: 2em;
+}
+
+#app .chat {
+  background-color: #1d201f;
+  color: #fff;
+}
+
+#app .chat h3 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#app footer {
+  background-color: #1d201f;
+  color: #ccc;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.9em;
+  padding: 20px 0;
+}
+/*# sourceMappingURL=style.css.map */
