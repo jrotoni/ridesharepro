@@ -207,7 +207,7 @@
                 <span>...and more!</span>
               </v-col>
               <v-col cols="12" md="6">
-                <v-img :src="getImg(showPic)" class="img-operations"></v-img>
+                <v-img :src="getImg(showPic)" class="img-operations" @click="showImg"></v-img>
               </v-col>
             </v-row>
           </v-container>
@@ -367,6 +367,18 @@
 
       </v-main>
 
+      <div id="myModal" class="modal" v-show="showModal">
+
+        <!-- The Close Button -->
+        <span class="close" @click="closeImg">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img :src="getBigImg(showPic)" class="modal-content"></img>
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
+
       <v-footer flat>
         <span>RideShare PRO &copy; {{ new Date().getFullYear() }}. All Rights Reserved.</span>
       </v-footer>
@@ -395,6 +407,7 @@
       data() {
         return {
           drawer: false,
+          showModal: false,
           requiredField: {
             firstName: '',
             lastName: '',
@@ -508,10 +521,19 @@
         getImg(number) {
           return './newhomepage/' + number + '.png'
         },
+        getBigImg(number) {
+          return './newhomepage/big-' + number + '.png'
+        },
         hide_alert() {
           window.setInterval(() => {
             this.alert = false;
           }, 4000)
+        },
+        showImg() {
+          this.showModal = true
+        },
+        closeImg() {
+          this.showModal = false
         }
       },
       mounted() {
