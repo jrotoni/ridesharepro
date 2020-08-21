@@ -133,7 +133,13 @@
   font-size: 2em;
 }
 
-#app .operations-wrapper li:first-child {
+#app .operations-wrapper li {
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#app .operations-wrapper li.selected, #app .operations-wrapper li:hover {
   color: #fff;
 }
 

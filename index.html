@@ -53,20 +53,6 @@
           </a>
       </v-navigation-drawer>
 
-      <!-- <v-app-bar app flat clipped-left color="transparent">
-        <v-container class="pa-0">
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-btn @click="drawer = !drawer" fab small>
-                <v-icon>mdi-format-list-bulleted-square</v-icon>
-              </v-btn>
-              test
-            </v-col>
-            <v-col cols="12" md="6">test!!!</v-col>
-          </v-row>
-        </v-container>
-      </v-app-bar> -->
-
       <header>
         <v-container>
           <v-row>
@@ -213,14 +199,10 @@
             <v-row align="center">
               <v-col cols="12" md="6">
                 <ul>
-                  <li>Manage Reservations</li>
-                  <li>Manage Customer and Driver Accounts</li>
-                  <li>Send notifications and announcements to your customers or drivers</li>
-                  <li>Dispatch Reservations</li>
-                  <li>Generate Performance Reports</li>
-                  <li>Manage your product offerings</li>
-                  <li>Manage your service areas</li>
-                  <li>Manage your pricing parameters</li>
+                  <li v-for="(operation, i) in operations" :key="i" @click="showPicNumber(operation.val)"
+                    :class="{'selected':operation.val == showPic}">
+                    {{operation.name}}
+                  </li>
                 </ul>
                 <span>...and more!</span>
               </v-col>
@@ -371,7 +353,8 @@
 
                     </v-col>
                     <v-col cols="12" class="text-right">
-                      <v-btn color="primary" rounded class="pa-5 px-10" id="chat" @click="submitForm">Submit</v-btn>
+                      <v-btn color="primary" rounded class="pa-5 px-10" id="chat" @click="submitForm"
+                        :disabled="isLoading">Submit</v-btn>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -433,8 +416,21 @@
             v => !!v || 'E-mail is required',
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
           ],
+          isLoading: false,
+          operations: [
+            { val: 0, name: 'Manage Reservations' },
+            { val: 1, name: 'Manage Customer and Driver Accounts' },
+            { val: 2, name: 'Send notifications and announcements to your customers or drivers' },
+            { val: 3, name: 'Dispatch Reservations' },
+            { val: 4, name: 'Generate Performance Reports' },
+            { val: 5, name: 'Manage your product offerings' },
+            { val: 6, name: 'Manage your service areas' },
+            { val: 7, name: 'Manage your pricing parameters' }
+          ],
+          showPic: 0
         }
       },
+
 
       methods: {
         toChat() {
@@ -452,25 +448,48 @@
           // this.$refs.form.reset()
           console.log('validate')
           let self = this
+          self.isLoading = true
           let hasError = false
           for (let field in self.error) {
             if (!self.requiredField[field]) {
               self.error[field] = 'This field is required.'
-              console.log('q', self.requiredField, self.error)
               hasError = true
             }
           }
           if (hasError) {
-            self.errorMessage = "Please fill-in the required fields."
+            self.errorMessage = "Please fill in the required fields."
           } else {
-
+            let bodyMessage = {
+              firstName: this.requiredField.firstName,
+              lastName: this.requiredField.lastName,
+              email: this.requiredField.email,
+              role: this.role,
+              phoneNumber: this.phoneNumber,
+              message: this.message,
+              transaction: this.transaction,
+              vehicle: this.vehicle,
+            }
+            let link = "mailto:jeremy.rotoni@gmail.com"
+              + "&subject=" + encodeURIComponent("This is my subject")
+              + "&body=" + encodeURIComponent(bodyMessage)
+            window.location.href = link
+            this.clearForm()
           }
+          self.isLoading = false
         },
         clearForm() {
           for (let field in this.requiredField) {
             this.requiredField[field] = ''
             this.error[field] = ''
           }
+          this.role = ''
+          this.phoneNumber = ''
+          this.message = ''
+          this.transaction = ''
+          this.vehicle = ''
+        },
+        showPicNumber(number) {
+          this.showPic = number
         }
 
       },
